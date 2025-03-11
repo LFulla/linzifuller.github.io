@@ -1,1 +1,2 @@
-# LinZi M Fuller
+# Hello! I'm LinZi :)
+#
