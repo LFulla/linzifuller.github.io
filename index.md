@@ -3,7 +3,8 @@ title: Welcome!
 layout: default
 ---
 <h1> Hello I'm LinZi! </h1>
-<p><style = "text-align: left"> img <src= "Website/cover.JPG">
+<p <style= "text-align: left"> <img src= "Website/cover.JPG">
+  <
   width = "200"
   height = "auto" /></p>
 
