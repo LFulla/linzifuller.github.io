@@ -1600,6 +1600,7 @@ input, select, textarea {
 				}
 
 				.row > .col-6-xsmall {
+					margin-top: 10%
 					width: 50%;
 				}
 
