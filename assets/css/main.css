@@ -376,6 +376,7 @@ input, select, textarea {
 		}
 
 		.row > .col-6 {
+			margin-top: 10%
 			width: 50%;
 		}
 
