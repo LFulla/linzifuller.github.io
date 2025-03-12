@@ -2,7 +2,7 @@
 title: Welcome!
 layout: default
 ---
-<img align="left" src= "Website/cover.JPG"
+<img style ="margin-right: 1.5rem" align="left" src= "Website/cover.JPG"
   padding-right = "35"
   width = "300"
   height = "auto">
