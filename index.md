@@ -3,7 +3,7 @@ title: Welcome!
 layout: default
 ---
 <img align="left" src= "Website/cover.JPG"
-  hspace = "15"
+  hspace = "25"
   width = "250"
   height = "auto">
 <h1> Hello I'm LinZi! </h1>
