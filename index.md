@@ -16,6 +16,10 @@ layout: default
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
 <h1>My Story</h1>
 <p>
   Technology has always fascinated me—whether it’s the hardware that powers computers or the complex systems that make them function seamlessly. My passion for software development was sparked at a young age through games like Minecraft and League of Legends, where I became deeply interested in how software is built, optimized, and brought to life. In high school, this curiosity led me to compete in numerous coding competitions, ultimately securing an internship at Lockheed Martin in 2018 as a junior. That experience solidified my enthusiasm for engineering and my desire to lead teams in developing innovative solutions for the future.
