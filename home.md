@@ -1,4 +1,3 @@
-
 ---
 title: Welcome!
 layout: default
@@ -34,4 +33,3 @@ With experience spanning enterprise-scale organizations to high-growth startups,
 
 
 </p>
-
