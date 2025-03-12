@@ -2126,7 +2126,7 @@ input, select, textarea {
 		.image.fit {
 			display: block;
 			margin: 0 0 0 0;
-			width: auto%;
+			width: 100%;
 		}
 
 			.image.fit img {
@@ -2134,7 +2134,7 @@ input, select, textarea {
 			}
 
 		.image.avatar {
-			border-radius: 50%;
+			border-radius: 60%;
 		}
 
 			.image.avatar:before {
@@ -2142,8 +2142,8 @@ input, select, textarea {
 			}
 
 			.image.avatar img {
-				border-radius: 50%;
-				width: auto;
+				border-radius: 60%;
+				width: 100;
 			}
 
 /* List */
