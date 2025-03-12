@@ -8,11 +8,14 @@ layout: default
   height = "auto">
 <h1> Hello I'm LinZi! </h1>
 <p>I'm a Technical Project Manager with a strong background in software engineering leading technical development teams to success through leadership and the understanding of software development. Educated in Technical Project Management from the University of Denver to lead teams using Waterfall and Agile methodologies specializing in Scrum and Kanban frameworks as well as Software and Project Management lifecycles. I thrive by collaborating in team environments to meet goals and deliver quality projects.
-<p>
-  <p>
-    
-  </p>
-</p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <h1>My Story</h1>
 <p>
   Technology has always fascinated me—whether it’s the hardware that powers computers or the complex systems that make them function seamlessly. My passion for software development was sparked at a young age through games like Minecraft and League of Legends, where I became deeply interested in how software is built, optimized, and brought to life. In high school, this curiosity led me to compete in numerous coding competitions, ultimately securing an internship at Lockheed Martin in 2018 as a junior. That experience solidified my enthusiasm for engineering and my desire to lead teams in developing innovative solutions for the future.
