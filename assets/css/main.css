@@ -1,19 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
 
 :root {
-  --bg: #0d0e11;
-  --bg-2: #15161a;
-  --bg-3: #1d1e23;
-  --paper: #16171b;
-  --ink: #f3f2ef;
-  --ink-2: #b7b6b1;
-  --ink-3: #807e78;
-  --line: rgba(255, 255, 255, 0.10);
-  --line-strong: rgba(255, 255, 255, 0.20);
-  --terra: #ef6a37;
-  --terra-2: #ff8a5b;
-  --pine: #5fcf8f;
-  --gold: #f0bd7e;
+  --bg: #1b1d21;
+  --bg-2: #232529;
+  --bg-3: #2c2e33;
+  --paper: #212327;
+  --ink: #eeede9;
+  --ink-2: #b4b3ad;
+  --ink-3: #84837d;
+  --line: rgba(255, 255, 255, 0.09);
+  --line-strong: rgba(255, 255, 255, 0.17);
+  --terra: #cc7253;
+  --terra-2: #d99270;
+  --pine: #6cc593;
+  --gold: #e3b487;
   --shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.8);
   --radius: 18px;
   --serif: "Fraunces", "Iowan Old Style", Georgia, serif;
@@ -45,8 +45,8 @@ body::before {
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(1000px 700px at 82% -12%, rgba(239, 106, 55, 0.12), transparent 58%),
-    radial-gradient(900px 700px at 0% 8%, rgba(95, 207, 143, 0.05), transparent 55%),
+    radial-gradient(1000px 700px at 82% -12%, rgba(204, 114, 83, 0.08), transparent 58%),
+    radial-gradient(900px 700px at 0% 8%, rgba(108, 197, 147, 0.04), transparent 55%),
     var(--bg);
 }
 
