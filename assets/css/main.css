@@ -132,6 +132,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 /* --- Hero --- */
 
 .hero {
+  position: relative;
   padding: clamp(120px, 16vh, 180px) clamp(20px, 4vw, 56px) clamp(48px, 7vw, 90px);
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -139,6 +140,20 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
+}
+.hero-text, .hero-photo { position: relative; z-index: 1; }
+
+/* Animated "glitch" character field behind the hero */
+.hero-glitch {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.55;
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(130% 120% at 72% 32%, #000 0%, rgba(0,0,0,0.5) 42%, transparent 74%);
+  mask-image: radial-gradient(130% 120% at 72% 32%, #000 0%, rgba(0,0,0,0.5) 42%, transparent 74%);
 }
 .hero-text .eyebrow {
   font-family: var(--mono);
@@ -558,6 +573,66 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   max-width: 60ch;
 }
 .contact-line a { color: var(--gold); text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1.5px; }
+/* Contact form */
+.contact-form {
+  max-width: 620px;
+  margin: 0 0 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.field { display: flex; flex-direction: column; gap: 7px; }
+.field > span {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--ink-3);
+}
+.field input,
+.field textarea {
+  font-family: var(--sans);
+  font-size: 15px;
+  color: var(--ink);
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px 14px;
+  transition: border-color 0.2s var(--easing), background 0.2s var(--easing);
+  resize: vertical;
+}
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--terra);
+  background: var(--bg-3);
+}
+.field input::placeholder,
+.field textarea::placeholder { color: var(--ink-3); }
+.form-foot {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.contact-form button[type="submit"] { border: 0; cursor: pointer; }
+.form-status {
+  font-family: var(--mono);
+  font-size: 13px;
+  margin: 0;
+  color: var(--ink-2);
+}
+.form-status.is-ok { color: var(--pine); }
+.form-status.is-err { color: var(--terra-2); }
+
+@media (max-width: 560px) {
+  .field-row { grid-template-columns: 1fr; }
+}
+
 .socials {
   list-style: none;
   margin: 0 0 56px;

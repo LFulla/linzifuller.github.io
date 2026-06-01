@@ -77,4 +77,116 @@
     }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
     sections.forEach((sec) => spy.observe(sec));
   }
+
+  /* --- Glitch hero background --- */
+  const canvas = document.getElementById('glitch');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (canvas && canvas.getContext) {
+    const ctx = canvas.getContext('2d');
+    const GLYPHS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789{}[]()<>/\\|=+*-_.:;%#@&$'.split('');
+    const COLORS = ['#3a2c20', '#4a3a2a', '#6a5640', '#c8b699', '#e9b67a', '#e06a3c'];
+    const FONT = 18;          // cell size in px (CSS)
+    let cols = 0, rows = 0, cells = [], dpr = 1, raf = 0, last = 0;
+
+    const rand = (n) => Math.floor(Math.random() * n);
+
+    const build = () => {
+      const rect = canvas.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = Math.floor(rect.width * dpr);
+      canvas.height = Math.floor(rect.height * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      cols = Math.ceil(rect.width / FONT);
+      rows = Math.ceil(rect.height / FONT);
+      cells = new Array(cols * rows).fill(0).map(() => ({
+        ch: GLYPHS[rand(GLYPHS.length)],
+        color: COLORS[rand(COLORS.length)],
+      }));
+      ctx.textBaseline = 'top';
+      draw();
+    };
+
+    const draw = () => {
+      const rect = canvas.getBoundingClientRect();
+      ctx.clearRect(0, 0, rect.width, rect.height);
+      ctx.font = `500 ${FONT - 4}px "JetBrains Mono", monospace`;
+      for (let i = 0; i < cells.length; i++) {
+        const c = cells[i];
+        const x = (i % cols) * FONT;
+        const y = Math.floor(i / cols) * FONT;
+        ctx.fillStyle = c.color;
+        ctx.fillText(c.ch, x, y);
+      }
+    };
+
+    const step = (t) => {
+      if (t - last > 90) {            // ~11fps flicker — calm, not frantic
+        last = t;
+        const updates = Math.max(1, Math.floor(cells.length * 0.06));
+        for (let n = 0; n < updates; n++) {
+          const i = rand(cells.length);
+          cells[i] = {
+            ch: GLYPHS[rand(GLYPHS.length)],
+            color: COLORS[rand(COLORS.length)],
+          };
+        }
+        draw();
+      }
+      raf = requestAnimationFrame(step);
+    };
+
+    const start = () => { if (!raf && !reduceMotion) raf = requestAnimationFrame(step); };
+    const stop = () => { if (raf) { cancelAnimationFrame(raf); raf = 0; } };
+
+    build();
+    window.addEventListener('resize', build, { passive: true });
+
+    // Only animate while the hero is on screen
+    const hero = document.getElementById('home');
+    if (hero && 'IntersectionObserver' in window) {
+      new IntersectionObserver((entries) => {
+        entries.forEach((e) => (e.isIntersecting ? start() : stop()));
+      }, { threshold: 0 }).observe(hero);
+    } else {
+      start();
+    }
+  }
+
+  /* --- Contact form (Formspree AJAX) --- */
+  const form = document.getElementById('contactForm');
+  const status = document.getElementById('formStatus');
+  if (form && status) {
+    const endpoint = form.getAttribute('action') || '';
+    const configured = endpoint && !endpoint.includes('YOUR_FORM_ID');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!configured) {
+        status.textContent = 'Form not yet connected — reach out via the links below.';
+        status.className = 'form-status is-err';
+        return;
+      }
+      status.textContent = 'Sending…';
+      status.className = 'form-status';
+      try {
+        const res = await fetch(endpoint, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' },
+        });
+        if (res.ok) {
+          form.reset();
+          status.textContent = 'Thanks! I’ll be in touch soon.';
+          status.className = 'form-status is-ok';
+        } else {
+          status.textContent = 'Something went wrong — please try the links below.';
+          status.className = 'form-status is-err';
+        }
+      } catch (err) {
+        status.textContent = 'Network error — please try the links below.';
+        status.className = 'form-status is-err';
+      }
+    });
+  }
 })();
