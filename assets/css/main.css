@@ -573,66 +573,6 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   max-width: 60ch;
 }
 .contact-line a { color: var(--gold); text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1.5px; }
-/* Contact form */
-.contact-form {
-  max-width: 620px;
-  margin: 0 0 48px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.field-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-.field { display: flex; flex-direction: column; gap: 7px; }
-.field > span {
-  font-family: var(--mono);
-  font-size: 12px;
-  letter-spacing: 0.04em;
-  color: var(--ink-3);
-}
-.field input,
-.field textarea {
-  font-family: var(--sans);
-  font-size: 15px;
-  color: var(--ink);
-  background: var(--bg-2);
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 12px 14px;
-  transition: border-color 0.2s var(--easing), background 0.2s var(--easing);
-  resize: vertical;
-}
-.field input:focus,
-.field textarea:focus {
-  outline: none;
-  border-color: var(--terra);
-  background: var(--bg-3);
-}
-.field input::placeholder,
-.field textarea::placeholder { color: var(--ink-3); }
-.form-foot {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  flex-wrap: wrap;
-}
-.contact-form button[type="submit"] { border: 0; cursor: pointer; }
-.form-status {
-  font-family: var(--mono);
-  font-size: 13px;
-  margin: 0;
-  color: var(--ink-2);
-}
-.form-status.is-ok { color: var(--pine); }
-.form-status.is-err { color: var(--terra-2); }
-
-@media (max-width: 560px) {
-  .field-row { grid-template-columns: 1fr; }
-}
-
 .socials {
   list-style: none;
   margin: 0 0 56px;

@@ -153,40 +153,4 @@
     }
   }
 
-  /* --- Contact form (Formspree AJAX) --- */
-  const form = document.getElementById('contactForm');
-  const status = document.getElementById('formStatus');
-  if (form && status) {
-    const endpoint = form.getAttribute('action') || '';
-    const configured = endpoint && !endpoint.includes('YOUR_FORM_ID');
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      if (!configured) {
-        status.textContent = 'Form not yet connected — reach out via the links below.';
-        status.className = 'form-status is-err';
-        return;
-      }
-      status.textContent = 'Sending…';
-      status.className = 'form-status';
-      try {
-        const res = await fetch(endpoint, {
-          method: 'POST',
-          body: new FormData(form),
-          headers: { Accept: 'application/json' },
-        });
-        if (res.ok) {
-          form.reset();
-          status.textContent = 'Thanks! I’ll be in touch soon.';
-          status.className = 'form-status is-ok';
-        } else {
-          status.textContent = 'Something went wrong — please try the links below.';
-          status.className = 'form-status is-err';
-        }
-      } catch (err) {
-        status.textContent = 'Network error — please try the links below.';
-        status.className = 'form-status is-err';
-      }
-    });
-  }
 })();
