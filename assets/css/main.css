@@ -1,19 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
 
 :root {
-  --bg: #1b1d21;
-  --bg-2: #232529;
-  --bg-3: #2c2e33;
-  --paper: #212327;
-  --ink: #eeede9;
-  --ink-2: #b4b3ad;
-  --ink-3: #84837d;
-  --line: rgba(255, 255, 255, 0.09);
-  --line-strong: rgba(255, 255, 255, 0.17);
-  --terra: #cc7253;
-  --terra-2: #d99270;
-  --pine: #6cc593;
-  --gold: #e3b487;
+  --bg: #17161f;
+  --bg-2: #1f1e29;
+  --bg-3: #282634;
+  --paper: #1c1b26;
+  --ink: #efeef5;
+  --ink-2: #b5b3c6;
+  --ink-3: #827f99;
+  --line: rgba(188, 178, 255, 0.10);
+  --line-strong: rgba(188, 178, 255, 0.20);
+  --terra: #b39df5;
+  --terra-2: #c6b6f9;
+  --azure: #86b4ff;
+  --pine: #86b4ff;
+  --gold: #c6b6f9;
   --shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.8);
   --radius: 18px;
   --serif: "Lora", "Iowan Old Style", Georgia, serif;
@@ -45,19 +46,19 @@ body::before {
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(1000px 700px at 82% -12%, rgba(204, 114, 83, 0.08), transparent 58%),
-    radial-gradient(900px 700px at 0% 8%, rgba(108, 197, 147, 0.04), transparent 55%),
+    radial-gradient(1000px 700px at 82% -12%, rgba(179, 157, 245, 0.16), transparent 58%),
+    radial-gradient(900px 700px at 0% 10%, rgba(134, 180, 255, 0.12), transparent 56%),
     var(--bg);
 }
 
 img { display: block; max-width: 100%; }
 
-a { color: var(--terra-2); transition: opacity 0.2s var(--easing), color 0.2s var(--easing); }
+a { color: var(--azure); transition: opacity 0.2s var(--easing), color 0.2s var(--easing); }
 a:hover { opacity: 0.78; }
 
 button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
 
-::selection { background: rgba(224, 106, 60, 0.32); color: var(--ink); }
+::selection { background: rgba(179, 157, 245, 0.34); color: var(--ink); }
 
 /* --- Floating pill nav --- */
 
@@ -72,7 +73,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   gap: clamp(14px, 3vw, 36px);
   padding: 9px 12px 9px 20px;
   border-radius: 999px;
-  background: rgba(28, 23, 17, 0.66);
+  background: rgba(26, 25, 37, 0.68);
   backdrop-filter: saturate(150%) blur(14px);
   -webkit-backdrop-filter: saturate(150%) blur(14px);
   border: 1px solid var(--line);
@@ -105,7 +106,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .nav a:hover { color: var(--ink); opacity: 1; }
 .nav a.is-active {
   color: var(--ink);
-  background: rgba(224, 106, 60, 0.18);
+  background: rgba(179, 157, 245, 0.20);
 }
 
 @media (max-width: 640px) {
@@ -132,7 +133,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   font-size: 12.5px;
   letter-spacing: 0.06em;
   text-transform: none;
-  color: var(--terra-2);
+  color: var(--azure);
   margin: 0 0 22px;
   display: inline-flex;
   align-items: center;
@@ -142,7 +143,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   content: "";
   width: 26px;
   height: 1.5px;
-  background: var(--terra);
+  background: var(--azure);
 }
 .hero-text h1 {
   font-family: var(--serif);
@@ -180,20 +181,20 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   border-radius: 999px;
   border: 1px solid var(--terra);
   background: var(--terra);
-  color: #1a120c;
+  color: #1a1226;
   font-weight: 500;
   font-size: 14px;
   letter-spacing: 0.01em;
   text-decoration: none;
   transition: transform 0.2s var(--easing), background 0.2s var(--easing), color 0.2s var(--easing), box-shadow 0.2s var(--easing);
 }
-.button:hover { transform: translateY(-2px); opacity: 1; box-shadow: 0 14px 30px -16px rgba(224, 106, 60, 0.7); }
+.button:hover { transform: translateY(-2px); opacity: 1; box-shadow: 0 14px 30px -16px rgba(179, 157, 245, 0.7); }
 .button.ghost {
   background: transparent;
   color: var(--ink);
   border-color: var(--line-strong);
 }
-.button.ghost:hover { background: rgba(244, 234, 215, 0.06); box-shadow: none; }
+.button.ghost:hover { background: rgba(198, 182, 249, 0.08); box-shadow: none; }
 .button .arrow { transition: transform 0.2s var(--easing); }
 .button:hover .arrow { transform: translateX(3px); }
 
@@ -246,7 +247,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   font-size: 12px;
   letter-spacing: 0.1em;
   text-transform: none;
-  color: var(--terra-2);
+  color: var(--azure);
   margin: 0 0 18px;
 }
 .section h2 {
@@ -527,7 +528,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   padding: clamp(64px, 9vw, 120px) clamp(20px, 4vw, 56px) 40px;
   scroll-margin-top: 90px;
   background:
-    radial-gradient(700px 400px at 50% 0%, rgba(224, 106, 60, 0.10), transparent 60%);
+    radial-gradient(700px 400px at 50% 0%, rgba(179, 157, 245, 0.12), transparent 60%);
 }
 .footer-inner { max-width: 1100px; margin: 0 auto; }
 .site-footer h2 {
@@ -547,7 +548,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   margin: 0 0 32px;
   max-width: 60ch;
 }
-.contact-line a { color: var(--gold); text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1.5px; }
+.contact-line a { color: var(--azure); text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1.5px; }
 .socials {
   list-style: none;
   margin: 0 0 56px;
