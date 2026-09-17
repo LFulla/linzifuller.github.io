@@ -643,29 +643,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 .lightbox-close:hover { background: rgba(244, 234, 215, 0.12); color: var(--ink); }
 
-/* --- Interests (personality) --- */
-
-.interests {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 0;
-  margin: 8px 0 4px;
-}
-.interests li {
-  font-size: 14px;
-  color: var(--ink);
-  background: var(--bg-2);
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 8px 15px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  transition: border-color 0.2s var(--easing), transform 0.2s var(--easing);
-}
-.interests li:hover { border-color: var(--terra); transform: translateY(-2px); }
+/* --- Personality --- */
 
 .secret-hint {
   font-family: var(--mono);
