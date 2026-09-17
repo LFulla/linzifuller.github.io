@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Press+Start+2P&display=swap");
 
 :root {
   --bg: #17161f;
@@ -20,6 +20,7 @@
   --serif: "Lora", "Iowan Old Style", Georgia, serif;
   --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
   --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --pixel: "Press Start 2P", "JetBrains Mono", monospace;
   --easing: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -348,36 +349,23 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 .story-body p strong { color: var(--ink); font-weight: 600; }
 
-/* About: story + side photo column */
+/* About: story + slim side photo rail (cards match the gallery) */
 .about-grid {
   display: grid;
-  grid-template-columns: 1.5fr 0.85fr;
-  gap: clamp(28px, 4vw, 60px);
+  grid-template-columns: 1.75fr 0.75fr;
+  gap: clamp(28px, 4vw, 56px);
   align-items: start;
 }
 .about-grid .story-body { max-width: none; }
 .about-media {
   display: flex;
   flex-direction: column;
-  gap: clamp(20px, 3vw, 32px);
-}
-.about-media figure { margin: 0; }
-.about-media img {
-  width: 100%;
-  border-radius: var(--radius);
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow);
-  background: var(--bg-2);
-}
-.about-media figcaption {
-  font-family: var(--mono);
-  font-size: 12px;
-  letter-spacing: 0.03em;
-  color: var(--ink-3);
-  margin-top: 10px;
+  gap: clamp(14px, 1.6vw, 20px);
 }
 @media (max-width: 800px) {
   .about-grid { grid-template-columns: 1fr; }
+  .about-media { flex-direction: row; }
+  .about-media .card { flex: 1; }
 }
 
 /* --- Experience timeline --- */
@@ -654,6 +642,73 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   transition: background 0.2s var(--easing), color 0.2s var(--easing);
 }
 .lightbox-close:hover { background: rgba(244, 234, 215, 0.12); color: var(--ink); }
+
+/* --- Interests (personality) --- */
+
+.interests {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0;
+  margin: 8px 0 4px;
+}
+.interests li {
+  font-size: 14px;
+  color: var(--ink);
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 15px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: border-color 0.2s var(--easing), transform 0.2s var(--easing);
+}
+.interests li:hover { border-color: var(--terra); transform: translateY(-2px); }
+
+.secret-hint {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--ink-3);
+  margin: 18px 0 0;
+  opacity: 0.72;
+}
+
+/* --- Konami easter egg (cute dinos!) --- */
+
+.dino-rain { position: fixed; inset: 0; pointer-events: none; z-index: 200; overflow: hidden; }
+.dino-drop {
+  position: absolute;
+  top: -12vh;
+  will-change: transform;
+  animation: dino-fall linear forwards;
+}
+@keyframes dino-fall {
+  to { transform: translateY(122vh) rotate(var(--r, 360deg)); }
+}
+.konami-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 40px;
+  transform: translateX(-50%) translateY(16px);
+  z-index: 201;
+  background: var(--bg-2);
+  border: 1px solid var(--terra);
+  color: var(--ink);
+  font-family: var(--pixel);
+  font-size: 11px;
+  line-height: 1.7;
+  text-align: center;
+  padding: 16px 20px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  transition: opacity 0.3s var(--easing), transform 0.3s var(--easing);
+  pointer-events: none;
+}
+.konami-toast.is-on { opacity: 1; transform: translateX(-50%) translateY(0); }
 
 /* --- Reveal on scroll --- */
 
