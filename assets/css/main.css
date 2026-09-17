@@ -348,6 +348,38 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 .story-body p strong { color: var(--ink); font-weight: 600; }
 
+/* About: story + side photo column */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 0.85fr;
+  gap: clamp(28px, 4vw, 60px);
+  align-items: start;
+}
+.about-grid .story-body { max-width: none; }
+.about-media {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 3vw, 32px);
+}
+.about-media figure { margin: 0; }
+.about-media img {
+  width: 100%;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  background: var(--bg-2);
+}
+.about-media figcaption {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  color: var(--ink-3);
+  margin-top: 10px;
+}
+@media (max-width: 800px) {
+  .about-grid { grid-template-columns: 1fr; }
+}
+
 /* --- Experience timeline --- */
 
 .timeline {
